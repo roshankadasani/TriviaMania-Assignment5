@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>Trivia Mania</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="container container-table" id="container2">
+      <div class="text-center">
+        <h1>Welcome to Trivia Mania</h1>
+        <img id="bg_img" alt="background image for trivia" src="img/trivia-image-center.jpg">
+        <div id="userFormArea">
+          <form id="userForm" data-toggle="validator" role="form" required>
+            <input type="text" class="input-lg" id="username" placeholder="Enter username">
+            <input type="submit" class="btn-primary btn-lg" value="Let's Play..!!" id="lets_play_btn">
+          </form>
+        </div>
+      </div>
+      <div class="row" id="mainContent">
+        <div class="col-xs-2">
+          <h3>Score</h3>
+          <div id="show_score" style="display: none">
+              <label style="color: green">Right: </label>
+              <p style="color: green" id="right_ans"></p>
+              <label style="color: red">Wrong: </label>
+              <p style="color: red" id="wrong_ans"></p>
+          </div>
+          <h3>Users Online</h3>
+          <ul class="list-group" id="users"></ul>
+          <a href="#" class="btn btn-primary" id="que_btn_add" style="display:none">Add New question</a>
+        </div>
+        <div class="col-xs-8">
+          <h3>Questions</h3>
+          <div id="show_que"></div>
+        </div>
+        <div class="col-xs-2">
+          <h3>Chatroom</h3>
+          <div class="chatBody">
+            <div id="chat"></div>
+            <form class="form-inline" id="messageForm">
+              <p><input class="form-control" type="textarea" placeholder="Start typing..." id="message">
+              <input type="submit" class="btn btn-primary" value="Send"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add new question</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+              <div id="que_add">
+                <label>Question:</label>
+                <input class="form-control" type="text" id="que_id" name="question" placeholder="Please enter the question">
+                <p>&nbsp;</p>
+                <label>Answer:</label>
+                <input class="form-control" type="text" name="answer" id="ans_id" placeholder="Please enter the answer">
+                <div class="modal-footer">
+                  <input class="btn1" type="button" value="Submit" id="submitBtnId">
+                </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/app.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+</html>
